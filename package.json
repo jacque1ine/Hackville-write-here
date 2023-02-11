@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@next/font": "13.1.6",
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
@@ -16,6 +17,7 @@
     "axios": "^1.3.2",
     "bootstrap": "^5.2.3",
     "cohere-ai": "^5.0.2",
+    "emailjs-com": "^3.2.0",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
