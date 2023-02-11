@@ -8,66 +8,10 @@ type FormValues = {
   from_name: string;
   message: string;
   to_email: string;
-  from_email: string;
+  reply_to: string;
 };
 
 const ContactForm = () => {
-  // const { register, handleSubmit } = useForm<FormValues>();
-  // const onSubmit: SubmitHandler<FormValues> = (data: any) => console.log(data);
-  // return (
-
-  {
-    /* <Form id="form"> */
-  }
-  {
-    /* <Form id="form">
-        <Form.Group className="mb-4">
-          <Form.Label htmlFor="from_name">What is your name?</Form.Label>
-          <Form.Control
-            type="text"
-            name="from_name"
-            id="from_name"
-            placeholder="Enter full name"
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Label htmlFor="message">Message</Form.Label>
-          <Form.Control type="text" name="message" id="message"></Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Label htmlFor="to_email">
-            Who do you want to send your email to?
-          </Form.Label>
-          <Form.Control
-            type="text"
-            name="to_email"
-            id="to_email"
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-4">
-          <Form.Label htmlFor="reply_to">What your email address?</Form.Label>
-          <Form.Control
-            type="text"
-            name="reply_to"
-            id="reply_to"
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-4 d-grid gap-2">
-          <Button
-            type="submit"
-            id="button"
-            value="Send Email"
-            size="lg"
-            onSubmit={sendEmail}
-          >
-            Submit
-          </Button>
-        </Form.Group>
-      </Form> */
-  }
-  {
-    /* ); */
-  }
   const {
     register,
     handleSubmit,
@@ -79,7 +23,7 @@ const ContactForm = () => {
       from_name: data.from_name,
       message: "hello there",
       to_email: data.to_email,
-      from_email: data.from_email,
+      reply_to: data.reply_to,
     };
 
     console.log("this is contact params");
@@ -92,14 +36,6 @@ const ContactForm = () => {
         contactParams,
         "RTKXEoUG3NUwuirJi"
       )
-      // .then(
-      //   (result) => {
-      //     console.log(result.text);
-      //   },
-      //   (error) => {
-      //     console.log(error.text);
-      //   }
-      // );
       .then(
         function (response) {
           console.log("SUCCESS!", response.status, response.text);
@@ -133,18 +69,13 @@ const ContactForm = () => {
         <Form.Label>What your email address?</Form.Label>
         <Form.Control
           className="mb-4"
-          {...register("from_email", { required: true })}
+          {...register("reply_to", { required: true })}
         />
-        <Form.Control type="submit" />
+        <Button value="submit" type="submit">
+          Submit
+        </Button>
       </Form>
     </>
-
-    // const contactParams: any= {
-    //   from_name: this.from_name,
-    //   message:test,
-    //   to_email: trip.traveler.email,
-    //   from_email: trip.owner.email,
-    // };
   );
 };
 
