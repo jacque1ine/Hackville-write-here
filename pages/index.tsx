@@ -1,9 +1,19 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-import ContactForm from "@/component/ContactForm";
 
-  
 export default function Home() {
+
+
+    async function getParsedText (file:string){
+      const response = await fetch("/api/vision",{
+        method:"POST",
+        body: JSON.stringify(file),
+      });
+      if(!response.ok){
+        throw new Error(response.statusText);
+      }
+      return await response.json();
+    }
   return (
     <>
       <Head>
