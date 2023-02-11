@@ -15,7 +15,9 @@ export default async function handler(
 const response =  await cohere.generate({
   model: 'medium',
   prompt: 
-  `Input: th1s text i5 wrung?
+  `Pretend that you are a grammar, punctuation, capitalization, and spelling checker.
+  
+  Input: th1s text i5 wrung?
   Output: This text is wrong.
 
   --
@@ -35,7 +37,12 @@ const response =  await cohere.generate({
 
   --
 
-  Input: i wuld be hapy tu aCcept th1s op portunity? Im glad christine liked the videas please thonk her for m e.I do have tosay I can only speek to my ezperience at CMH if thats alrlght
+  Input: really Sorry I'm really that I had a attude. Please forgive me. From your horrible child Sophia
+  Output: I'm really sorry that I had an attitude. Please forgive me. From your horrible child, Sophia.
+
+  --
+
+  Input: ${JSON.parse(req.body)}
   Output:`,
   max_tokens: 100,
   temperature: 0.8,

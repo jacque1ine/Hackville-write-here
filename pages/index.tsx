@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-
+import Link from "next/link";
 export default function Home() {
 
 
@@ -33,8 +33,8 @@ export default function Home() {
           <h2>would you like to upload a picture or take a photo?</h2>
         </div>
         <div className="container-fluid buttons">
-          <button type="button" className="btns btn-upload"><i className="bi bi-upload"></i></button>
-          <button type="button" className="btns btn-take"><i className="bi bi-camera"></i></button>
+          <Link href={"/uploadphoto"}><button type="button" className="btns btn-upload"><i className="bi bi-upload"></i></button></Link>
+          <Link href={"/takephoto"}><button type="button" className="btns btn-take"><i className="bi bi-camera"></i></button></Link>
         </div>
         </div>
       </main>
