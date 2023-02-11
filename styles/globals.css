@@ -13,6 +13,11 @@ html, body, main {
   background-color: var(--light);
 }
 
+
+h1, h2, h3, h4, h5, h6, p {
+  color: var(--dark);
+}
+
 .center-screen {
   display: flex;
   justify-content: center;
@@ -79,5 +84,16 @@ button {
   color: var(--light);
 }
 
+.success-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+}
 
+.success {
+  font-size: 60px;
+}
 

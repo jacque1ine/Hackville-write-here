@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/check.css";
 import type { AppProps } from "next/app";
 import "bootstrap/dist/css/bootstrap.css";
 import Container from "react-bootstrap/Container";
