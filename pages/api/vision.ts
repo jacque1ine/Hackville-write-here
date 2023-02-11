@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import vision from '@google-cloud/vision'
 type Data = {
-  detections: Object,
+  detections: object,
 }
 
 const client = new vision.ImageAnnotatorClient();
@@ -12,12 +12,10 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
     try{
-    const [result] = await client.textDetection("public/wakeupcat.jpg");
+    const [result] = await client.textDetection("public/detect_handwriting_OCR-detect-handwriting_SMALL.png");
     const detections = result.textAnnotations;
-    console.log('Text:');
-    console.log(detections && detections[0]);
     if (detections){
-        res.status(200).json({detections});
+        res.status(200).json({detections: detections});
     }
     }
     catch(e){
