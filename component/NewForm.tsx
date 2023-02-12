@@ -45,21 +45,21 @@ const NewForm = () => {
     console.log("this is contact params");
     console.log(contactParams);
 
-    // emailjs
-    //   .send(
-    //     "service_1128xjn",
-    //     "template_dwbvoyh",
-    //     contactParams,
-    //     "RTKXEoUG3NUwuirJi"
-    //   )
-    //   .then(
-    //     function (response) {
-    //       console.log("SUCCESS!", response.status, response.text);
-    //     },
-    //     function (error) {
-    //       console.log("FAILED...", error);
-    //     }
-    //   );
+    emailjs
+      .send(
+        "service_1128xjn",
+        "template_dwbvoyh",
+        contactParams,
+        "RTKXEoUG3NUwuirJi"
+      )
+      .then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        function (error) {
+          console.log("FAILED...", error);
+        }
+      );
   }
 
   return (
