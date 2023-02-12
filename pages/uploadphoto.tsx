@@ -2,10 +2,11 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import React, { useState, useEffect, useReducer, useRef } from "react";
 import Webcam from "react-webcam";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import Header from "@/component/Header";
 
 export default function Home() {
+  const router = useRouter();
   const [parsedText, setParsedText] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   async function getParsedText(file: any) {
@@ -20,6 +21,8 @@ export default function Home() {
     }
     const data = await response.json();
     setParsedText(data.detections[0].description);
+    localStorage.setItem("parseText",data.detections[0].description);
+    router.push("/confirmation");
   }
 
   function saveFile(e: any) {

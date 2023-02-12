@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Plate } from "@udecode/plate";
 import Head from "next/head";
 import Header from "@/component/Header";
-
+import { useRouter } from "next/router";
 const Confirmation = () => {
+  const router = useRouter();
+  const [textEditor, setTextEditor] = useState(localStorage.getItem("parseText"));
   const [subject, setSubject ] = useState(""); 
   async function getSubject (){
     const data = localStorage.get("parsedText") 
@@ -14,6 +16,23 @@ const Confirmation = () => {
     const subjectLine = await generatedSubject.json();
     setSubject(subjectLine);
   }
+  const handleClick = ()=>{
+    localStorage.setItem("parseText", textEditor!);
+    router.push("/form");
+  }
+
+
+  const initialValue = [
+    {
+      type: 'p',
+      children: [
+        {
+          text:
+            `${textEditor}`,
+        },
+      ],
+    } as any
+  ];
 
   return (
     <>
@@ -30,12 +49,14 @@ const Confirmation = () => {
       <main>
         <Header />
         <div className="container">
-          <Plate editableProps={{ placeholder: "Start typing here!" }} />
+          <Plate editableProps={{ placeholder: "Start typing here!" }} initialValue ={initialValue}
+          onChange = {(e:any)=>setTextEditor(e)}
+          />
           <div className="container-fluid buttons">
             <button type="button" className="btns btn-no">
               <i className="bi bi-x"></i>
             </button>
-            <button type="button" className="btns btn-yes">
+            <button type="button" className="btns btn-yes" onClick={handleClick}>
               <i className="bi bi-check-lg"></i>
             </button>
           </div>

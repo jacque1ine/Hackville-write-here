@@ -8,11 +8,12 @@ import React, {
   useCallback,
 } from "react";
 import Webcam from "react-webcam";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useMediaQuery } from 'react-responsive';
 
 
 export default function Home() {
+  const router = useRouter();
   const [showButton, setShowButton] = useState(false);
   const [parsedText, setParsedText] = useState("");
   const [imgSrc, setImgSrc] = React.useState("");
@@ -39,6 +40,8 @@ export default function Home() {
     }
     const data = await response.json();
     setParsedText(data.detections[0].description);
+    localStorage.setItem("parseText",data.detections[0].description);
+    router.push("/confirmation");
   }
 
   const videoConstraints = {
