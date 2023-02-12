@@ -4,13 +4,20 @@ import vision from "@google-cloud/vision";
 type Data = {
   detections: any;
 };
+  const CONFIG = {
+    credentials: {
+      private_key: process.env.NEXT_PUBLIC_PRIVATE_KEY!.split(String.raw`\n`).join('\n'),
+      client_email: process.env.NEXT_PUBLIC_GC_CLIENT_EMAIL
 
-const client = new vision.ImageAnnotatorClient();
+    }
+  }
+const client = new vision.ImageAnnotatorClient(CONFIG);
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+
   try {
     const imgData = JSON.parse(req.body);
     const request = {
@@ -21,6 +28,7 @@ export default async function handler(
         languageHints: ["en-t-i0-handwrit"]
       }
     };
+
     const [result] = await client.documentTextDetection(request);
     const fullTextAnnotation = result.textAnnotations;
     res.status(200).json({ detections: fullTextAnnotation });

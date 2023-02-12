@@ -13,9 +13,9 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
 const response =  await cohere.generate({
-  model: 'medium',
+  model: 'xlarge',
   prompt: 
-  `Pretend that you are a grammar, punctuation, capitalization, and spelling checker.
+  `Pretend that you are a grammar, punctuation, capitalization, and spelling checker, I'm going to give you 
   
   Input: th1s text i5 wrung?
   Output: This text is wrong.
@@ -44,7 +44,7 @@ const response =  await cohere.generate({
 
   Input: ${JSON.parse(req.body)}
   Output:`,
-  max_tokens: 100,
+  max_tokens: 400,
   temperature: 0.8,
   end_sequences: ["--"],
   k: 0,

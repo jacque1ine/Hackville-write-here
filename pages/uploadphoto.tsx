@@ -25,7 +25,6 @@ export default function Home() {
       body: JSON.stringify(data.detections[0].description),
     });
     const editedData = await editedResponse.json();
-    //console.log(editedData);
     setParsedText(editedData.data);
   }
 
