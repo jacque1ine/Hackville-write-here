@@ -74,7 +74,7 @@ const NewForm = () => {
          `}
       </style>
 
-      <div style={{ width: "100%", height: "70vh" }}>
+      <div style={{ width: "100%", height: "80vh" }}>
         <Form
           formId="1"
           formObj={{
@@ -83,7 +83,6 @@ const NewForm = () => {
                 name: "short-text",
                 id: "from_name",
                 attributes: {
-                  layout: "split-right",
                   required: true,
                   label: "Let's start with your name",
                 },
@@ -94,7 +93,7 @@ const NewForm = () => {
                 attributes: {
                   required: true,
                   label:
-                    "Thanks {{field:from_name}}! Now enter the receipient's email address:",
+                    "Thanks {{field:from_name}}! Now enter the <b>RECIPIENT'S</b> email address:",
                 },
               },
               {
@@ -103,7 +102,7 @@ const NewForm = () => {
                 attributes: {
                   required: true,
                   label:
-                    "Thanks {{field:from_name}}, please insert your email!",
+                    "Thanks {{field:from_name}}! Finally, please enter <b>YOUR</b> email address!",
                 },
               },
             ],
@@ -112,6 +111,9 @@ const NewForm = () => {
               disableWheelSwiping: false,
               disableNavigationArrows: false,
               disableProgressBar: true,
+            },
+            messages: {
+              "block.email.placeholder": "Type the email here",
             },
             theme: {
               font: "Lato",
