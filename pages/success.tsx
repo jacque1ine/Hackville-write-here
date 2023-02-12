@@ -13,6 +13,7 @@ const Success = () => {
             <link rel="icon" href="/logo3.png" />
         </Head>
         <main>
+            <div className="header"><img src="/logo.svg" className="header-logo"></img></div>
             <div className="container center-screen">
                 <div className="success-checkmark">
                     <div className="check-icon">
