@@ -1,8 +1,9 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import Link from "next/link";
+import { useState } from "react";
 export default function Home() {
-
+ 
 
     async function getParsedText (file:string){
       const response = await fetch("/api/vision",{
@@ -26,7 +27,7 @@ export default function Home() {
       </Head>
       <main>
         <div className="container center-screen">
-        <div className="header img-fluid">
+        <div className="img-fluid">
           <img className="logo" src="/logo.svg"/>
         </div>
         <div className="welcome">
