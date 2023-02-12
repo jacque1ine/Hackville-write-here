@@ -42,7 +42,7 @@ export default function Home() {
     const data = await response.json();
     setParsedText(data.detections[0].description);
     localStorage.setItem("parsedText",data.detections[0].description);
-    router.push("/confirmation");
+    router.push({pathname: "/confirmation", query: {parsedText: data.detections[0].description}});
   }
 
   const videoConstraints = {

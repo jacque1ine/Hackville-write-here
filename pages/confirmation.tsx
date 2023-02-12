@@ -44,7 +44,7 @@ getSubject(local);
       ],
     } as any
   ];
-
+  console.log(textEditor?.toLocaleString());
   return (
     <>
       <Head>
@@ -64,7 +64,9 @@ getSubject(local);
         <Header />
         <div className="container">
           <Plate editableProps={{ placeholder: "Start typing here!" }} initialValue ={initialValue}
-          onChange = {(e:any)=>setTextEditor(e)}
+          onChange = {(e:any)=>
+            setTextEditor(e[0].children[0].text)
+          }
           />
           <div className="container-fluid buttons">
             <button type="button" className="btns btn-no">
