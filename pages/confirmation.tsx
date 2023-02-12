@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Plate } from "@udecode/plate";
 import Head from "next/head";
 import Header from "@/component/Header";
 
 const Confirmation = () => {
+  const [subject, setSubject ] = useState(""); 
+  async function getSubject (){
+    const data = localStorage.get("parsedText") 
+    const generatedSubject = await fetch("/api/subject", {
+      method: "POST",
+      body: JSON.stringify(data.detections[0].description),
+    });
+    const subjectLine = await generatedSubject.json();
+    setSubject(subjectLine);
+  }
+
   return (
     <>
       <Head>

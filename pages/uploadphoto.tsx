@@ -11,7 +11,6 @@ export default function Home() {
   async function getParsedText(file: any) {
     const index = file.indexOf(",") + 1;
     const imgData = file.substring(index);
-
     const response = await fetch("/api/vision", {
       method: "POST",
       body: JSON.stringify(imgData),
@@ -20,13 +19,7 @@ export default function Home() {
       throw new Error(response.statusText);
     }
     const data = await response.json();
-
-    const editedResponse = await fetch("/api/spellcheck", {
-      method: "POST",
-      body: JSON.stringify(data.detections[0].description),
-    });
-    const editedData = await editedResponse.json();
-    setParsedText(editedData.data);
+    setParsedText(data.detections[0].description);
   }
 
   function saveFile(e: any) {
@@ -68,7 +61,6 @@ export default function Home() {
       <main>
         <Header />
         <div className="container">
-          <p>{parsedText}</p>
           <form className="files" onSubmit={saveFile}>
             <input
               type="file"

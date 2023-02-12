@@ -29,7 +29,6 @@ export default function Home() {
   async function getParsedText(file: any) {
     const index = file.indexOf(",") + 1;
     const imgData = file.substring(index);
-
     const response = await fetch("/api/vision", {
       method: "POST",
       body: JSON.stringify(imgData),
@@ -38,14 +37,9 @@ export default function Home() {
       throw new Error(response.statusText);
     }
     const data = await response.json();
-    const editedResponse = await fetch("/api/spellcheck", {
-      method: "POST",
-      body: JSON.stringify(data.detections[0].description),
-    });
-    const subjectLine = await editedResponse.json();
-    localStorage.setItem("parsedText", data.detections[0].description);
     setParsedText(data.detections[0].description);
   }
+
   const videoConstraints = {
     facingMode: { exact: "environment" },
   };
