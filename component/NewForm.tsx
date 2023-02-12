@@ -72,7 +72,7 @@ const NewForm = () => {
          `}
       </style>
 
-      <div style={{ width: "100%", height: "100vh" }}>
+      <div style={{ width: "100%", height: "70vh" }}>
         <Form
           formId="1"
           formObj={{
