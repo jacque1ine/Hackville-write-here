@@ -5,11 +5,11 @@ import Header from "@/component/Header";
 import { useRouter } from "next/router";
 const Confirmation = () => {
   const router = useRouter();
-
-  const [textEditor, setTextEditor] = useState("");
+  const initData = router.query.parsedText;
+  const [textEditor, setTextEditor] = useState(initData);
   const [subject, setSubject ] = useState(""); 
-  async function getSubject (){
-    const data :any= localStorage.getItem("parsedText") 
+  async function getSubject (local){
+    const data :any= local 
     const generatedSubject = await fetch("/api/subject", {
       method: "POST",
       body: JSON.stringify(data),
@@ -19,17 +19,20 @@ const Confirmation = () => {
     setSubject(subjectLine);
   }
   const handleClick = ()=>{
-    localStorage.setItem("parsedText", textEditor!);
+    if (textEditor){
+      localStorage.setItem("parsedText", textEditor.toString());
+    }
+    
     router.push("/form");
   }
 useEffect(()=>{
   const local = localStorage.getItem("parsedText");
   if(local){
-    setTextEditor(local.toString);
+    setTextEditor(local);
   }
-getSubject();
+
+getSubject(local);
 },[])
-  console.log(localStorage.getItem("parsedText"))
   const initialValue = [
     {
       type: 'p',

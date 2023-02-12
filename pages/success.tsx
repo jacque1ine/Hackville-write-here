@@ -3,11 +3,11 @@ import Head from "next/head";
 import Header from "@/component/Header";
 
 const Success = () => {
-  const [msg,setMsg] = useState("");
+  const [msg,setMsg] = useState(" ");
   useEffect(()=>{
     const temp = localStorage.getItem("to_email");
     if (temp){
-      setMsg(temp?.toString);
+      setMsg(temp);
     }
     
   },[])
