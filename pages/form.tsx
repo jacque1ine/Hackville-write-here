@@ -1,8 +1,14 @@
+import Header from "@/component/Header";
 import NewForm from "@/component/NewForm";
 import React from "react";
 
-export const Form = () => {
-  return <NewForm></NewForm>;
+const Form = () => {
+  return (
+    <>
+      <Header />
+      <NewForm></NewForm>
+    </>
+  );
 };
 
 export default Form;
