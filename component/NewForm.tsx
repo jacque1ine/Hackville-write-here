@@ -1,7 +1,9 @@
+/**rThis Component is an old form for the form which is all on one page.
+ */
+
 import React, { useRef } from "react";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-// import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Alert, Badge } from "react-bootstrap";
@@ -72,7 +74,7 @@ const NewForm = () => {
          `}
       </style>
 
-      <div style={{ width: "100%", height: "70vh" }}>
+      <div style={{ width: "100%", height: "80vh" }}>
         <Form
           formId="1"
           formObj={{
@@ -81,7 +83,6 @@ const NewForm = () => {
                 name: "short-text",
                 id: "from_name",
                 attributes: {
-                  layout: "split-right",
                   required: true,
                   label: "Let's start with your name",
                 },
@@ -92,7 +93,7 @@ const NewForm = () => {
                 attributes: {
                   required: true,
                   label:
-                    "Thanks {{field:from_name}}! Now enter the receipient's email address:",
+                    "Thanks {{field:from_name}}! Now enter the <b>RECIPIENT'S</b> email address:",
                 },
               },
               {
@@ -101,7 +102,7 @@ const NewForm = () => {
                 attributes: {
                   required: true,
                   label:
-                    "Thanks {{field:from_name}}, please insert your email!",
+                    "Thanks {{field:from_name}}! Finally, please enter <b>YOUR</b> email address!",
                 },
               },
             ],
@@ -110,6 +111,9 @@ const NewForm = () => {
               disableWheelSwiping: false,
               disableNavigationArrows: false,
               disableProgressBar: true,
+            },
+            messages: {
+              "block.email.placeholder": "Type the email here",
             },
             theme: {
               font: "Lato",

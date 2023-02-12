@@ -1,6 +1,7 @@
 import React from "react";
 import { Plate } from "@udecode/plate";
 import Head from "next/head";
+import Header from "@/component/Header";
 
 const Confirmation = () => {
   return (
@@ -16,9 +17,7 @@ const Confirmation = () => {
         <link rel="icon" href="/logo3.png" />
       </Head>
       <main>
-        <div className="header">
-          <img src="/logo.svg" className="header-logo"></img>
-        </div>
+        <Header />
         <div className="container">
           <Plate editableProps={{ placeholder: "Start typing here!" }} />
           <div className="container-fluid buttons">

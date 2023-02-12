@@ -8,12 +8,6 @@ import { Alert, Badge } from "react-bootstrap";
 import { Form } from "@quillforms/renderer-core";
 import "@quillforms/renderer-core/build-style/style.css";
 import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
-type FormValues = {
-  from_name: string;
-  message: string;
-  to_email: string;
-  reply_to: string;
-};
 
 const ContactForm = () => {
   const {
@@ -29,9 +23,6 @@ const ContactForm = () => {
       to_email: data.to_email,
       reply_to: data.reply_to,
     };
-
-    console.log("this is contact params");
-    console.log(contactParams);
 
     emailjs
       .send(
