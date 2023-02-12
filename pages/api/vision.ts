@@ -17,8 +17,11 @@ export default async function handler(
       image: {
         content: Buffer.from(imgData, "base64"),
       },
+      imageContext :{
+        languageHints: ["en-t-i0-handwrit"]
+      }
     };
-    const [result] = await client.textDetection(request);
+    const [result] = await client.documentTextDetection(request);
     const fullTextAnnotation = result.textAnnotations;
     res.status(200).json({ detections: fullTextAnnotation });
   } catch (e: any) {

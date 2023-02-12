@@ -50,7 +50,7 @@ const response =  await cohere.generate({
   k: 0,
   p: 0.75
 });
-console.log(response.body.generations[0].text);
+//console.log(response.body.generations[0].text);
 res.status(200).json({data: response.body.generations[0].text});
 
 
