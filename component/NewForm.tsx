@@ -81,9 +81,8 @@ const NewForm = () => {
                 name: "short-text",
                 id: "from_name",
                 attributes: {
-                  layout: "split-right",
                   required: true,
-                  label: "Let's start with your name",
+                  label: "Hi! What is your name?",
                 },
               },
               {
@@ -92,7 +91,7 @@ const NewForm = () => {
                 attributes: {
                   required: true,
                   label:
-                    "Thanks {{field:from_name}}! Now enter the receipient's email address:",
+                    "Thanks {{field:from_name}}! who is this email for?",
                 },
               },
               {
@@ -101,7 +100,7 @@ const NewForm = () => {
                 attributes: {
                   required: true,
                   label:
-                    "Thanks {{field:from_name}}, please insert your email!",
+                    "Finally, what is your email?",
                 },
               },
             ],
@@ -118,9 +117,9 @@ const NewForm = () => {
               logo: {
                 src: "",
               },
-              questionsColor: "#495797",
-              answersColor: "#495797",
-              buttonsBorderRadius: 30,
+              questionsColor: "#272B27",
+              answersColor: "#272B27",
+              buttonsBorderRadius: 12,
               errorsFontColor: "#ECE9EA",
               errorsBgColor: "#f8d7da",
               progressBarFillColor: "#272B27",

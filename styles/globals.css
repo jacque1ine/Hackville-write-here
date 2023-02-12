@@ -137,6 +137,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 3%;
   margin: 20px;
 }
 
