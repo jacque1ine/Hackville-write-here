@@ -64,7 +64,7 @@ export default function Home() {
         
       </Head>
       <main>
-        <Header />
+        <div className="header"><Link href={"/"}><img src="/logo.svg" className="header-logo"></img></Link></div>
         <div className="container">
           <form className="files" onSubmit={saveFile}>
             <input

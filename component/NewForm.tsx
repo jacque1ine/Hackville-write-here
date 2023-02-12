@@ -84,7 +84,7 @@ const NewForm = () => {
                 id: "from_name",
                 attributes: {
                   required: true,
-                  label: "Let's start with your name",
+                  label: "Hi! What is your name?",
                 },
               },
               {
@@ -122,9 +122,9 @@ const NewForm = () => {
               logo: {
                 src: "",
               },
-              questionsColor: "#495797",
-              answersColor: "#495797",
-              buttonsBorderRadius: 30,
+              questionsColor: "#272B27",
+              answersColor: "#272B27",
+              buttonsBorderRadius: 12,
               errorsFontColor: "#ECE9EA",
               errorsBgColor: "#f8d7da",
               progressBarFillColor: "#272B27",
