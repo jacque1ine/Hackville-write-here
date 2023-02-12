@@ -34,11 +34,13 @@ const NewForm = () => {
   function sendEmail(data: any) {
     console.log("send email called");
     const contactParams: any = {
+      subject: "This is the subject",
       from_name: data.answers.from_name.value,
       message: "hello there",
       to_email: data.answers.to_email.value,
       reply_to: data.answers.reply_to.value,
     };
+    localStorage.setItem("to_email", data.answers.to_email.value);
 
     console.log("this is contact params");
     console.log(contactParams);
@@ -89,7 +91,8 @@ const NewForm = () => {
                 id: "to_email",
                 attributes: {
                   required: true,
-                  label: "Thanks {{field:from_name}}, enter email receiptent!",
+                  label:
+                    "Thanks {{field:from_name}}! Now enter the receipient's email address:",
                 },
               },
               {
@@ -105,7 +108,7 @@ const NewForm = () => {
             settings: {
               animationDirection: "vertical",
               disableWheelSwiping: false,
-              disableNavigationArrows: true,
+              disableNavigationArrows: false,
               disableProgressBar: true,
             },
             theme: {
@@ -119,7 +122,7 @@ const NewForm = () => {
               answersColor: "#495797",
               buttonsBorderRadius: 30,
               errorsFontColor: "#ECE9EA",
-              errorsBgColor: "#f00",
+              errorsBgColor: "#f8d7da",
               progressBarFillColor: "#272B27",
               progressBarBgColor: "#ccc",
               backgroundColor: "#ECE9EA",
