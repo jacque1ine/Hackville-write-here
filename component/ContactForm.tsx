@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Alert, Badge } from "react-bootstrap";
 type FormValues = {
   from_name: string;
   message: string;
@@ -47,30 +48,49 @@ const ContactForm = () => {
   }
   return (
     <>
+      <style type="text/css">
+        {`   .myAlert {
+          padding: 4px;
+          font-size: 12px
+         }
+         `}
+      </style>
       <Form
         onSubmit={handleSubmit((data) => {
           sendEmail(data);
         })}
         id="myForm"
       >
-        <Form.Label>What is your name?</Form.Label>
-        <Form.Control
-          className="mb-4"
-          {...register("from_name", { required: true })}
-        />
+        <Form.Group className="mb-5">
+          <Form.Label>What is your name?</Form.Label>
+          <Form.Control {...register("from_name", { required: true })} />
+          {errors.from_name && (
+            <Alert className="myAlert" key="danger" variant="danger">
+              This field is required
+            </Alert>
+          )}
+        </Form.Group>
+        <Form.Group className="mb-5">
+          <Form.Label>
+            What is the email address you want to send the email to?
+          </Form.Label>
+          <Form.Control {...register("to_email", { required: true })} />
+          {errors.to_email && (
+            <Alert className="myAlert" key="danger" variant="danger">
+              This field is required
+            </Alert>
+          )}
+        </Form.Group>
+        <Form.Group className="mb-5">
+          <Form.Label>What your email address?</Form.Label>
+          <Form.Control {...register("reply_to", { required: true })} />
+          {errors.reply_to && (
+            <Alert className="myAlert" key="danger" variant="danger">
+              This field is required
+            </Alert>
+          )}
+        </Form.Group>
 
-        <Form.Label>
-          What is the email address you want to send the email to?
-        </Form.Label>
-        <Form.Control
-          className="mb-4"
-          {...register("to_email", { required: true })}
-        />
-        <Form.Label>What your email address?</Form.Label>
-        <Form.Control
-          className="mb-4"
-          {...register("reply_to", { required: true })}
-        />
         <Button value="submit" type="submit">
           Submit
         </Button>
