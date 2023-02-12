@@ -23,7 +23,7 @@ const Confirmation = () => {
     router.push("/form");
   }
 useEffect(()=>{
-  const local = useState(localStorage.getItem("parsedText"));
+  const local = localStorage.getItem("parsedText");
   if(local){
     setTextEditor(local.toString);
   }
