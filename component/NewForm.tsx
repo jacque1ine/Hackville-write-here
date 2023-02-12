@@ -36,9 +36,9 @@ const NewForm = () => {
   function sendEmail(data: any) {
     console.log("send email called");
     const contactParams: any = {
-      subject: "This is the subject",
+      subject: `New email from ${data.answers.from_name.value}`,
       from_name: data.answers.from_name.value,
-      message: localStorage.getItem("parseText"),
+      message: localStorage.getItem("parsedText"),
       to_email: data.answers.to_email.value,
       reply_to: data.answers.reply_to.value,
     };

@@ -15,7 +15,7 @@ export default async function handler(
 const response =  await cohere.generate({
   model: 'xlarge',
   prompt: 
-  `You are a subject line generator. You summarize emails into maximum 10 words to convey the most important part of them. Ignore any greetings and make sure you summarize the main point of the text. Here are some examples.
+  `You are a subject line generator. You summarize emails into maximum 10 words to convey the most important part of them. Ignore any greetings and make sure you summarize the main point of the text in a proper sentence. Here are some examples.
 
   Email: 
   Hi Jackie, 
