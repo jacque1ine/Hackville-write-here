@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Head from "next/head";
 import Header from "@/component/Header";
 
 const Success = () => {
+  const [msg,setMsg] = useState("");
+  useEffect(()=>{
+    const temp = localStorage.getItem("to_email");
+    if (temp){
+      setMsg(temp?.toString);
+    }
+    
+  },[])
   return (
     <>
       <Head>
@@ -35,7 +43,7 @@ const Success = () => {
           <div className="success-message">
             <h1 className="success">success!</h1>
             <h5>email sent to:</h5>
-            <h5>{localStorage.getItem("to_email")}</h5>
+            <h5>{msg}</h5>
           </div>
         </div>
       </main>

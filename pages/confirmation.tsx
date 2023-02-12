@@ -5,7 +5,8 @@ import Header from "@/component/Header";
 import { useRouter } from "next/router";
 const Confirmation = () => {
   const router = useRouter();
-  const [textEditor, setTextEditor] = useState(localStorage.getItem("parsedText"));
+
+  const [textEditor, setTextEditor] = useState("");
   const [subject, setSubject ] = useState(""); 
   async function getSubject (){
     const data :any= localStorage.getItem("parsedText") 
@@ -22,6 +23,10 @@ const Confirmation = () => {
     router.push("/form");
   }
 useEffect(()=>{
+  const local = useState(localStorage.getItem("parsedText"));
+  if(local){
+    setTextEditor(local.toString);
+  }
 getSubject();
 },[])
   console.log(localStorage.getItem("parsedText"))
