@@ -42,7 +42,10 @@ export default function Home() {
     const data = await response.json();
     setParsedText(data.detections[0].description);
     localStorage.setItem("parsedText",data.detections[0].description);
-    router.push({pathname: "/confirmation", query: {parsedText: data.detections[0].description}});
+    //router.push({pathname: "/confirmation", query: {parsedText: data.detections[0].description}});
+  }
+  function handleClick(){
+    router.push({pathname: "/confirmation", query: {parsedText: parsedText}});
   }
 
   const videoConstraints = {
@@ -69,7 +72,7 @@ export default function Home() {
           
           }
           {showButton && (
-          <button className="btns btn-usephoto">Use Photo</button>
+          <button className="btns btn-usephoto" onClick={handleClick}>Use Photo</button>
           )}
           </div>
 
