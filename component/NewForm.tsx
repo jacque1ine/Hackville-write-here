@@ -1,7 +1,9 @@
+/**rThis Component is an old form for the form which is all on one page.
+ */
+
 import React, { useRef } from "react";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-// import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Alert, Badge } from "react-bootstrap";
@@ -34,7 +36,7 @@ const NewForm = () => {
   function sendEmail(data: any) {
     console.log("send email called");
     const contactParams: any = {
-      subject: "This is the subject",
+      subject: `New email from ${data.answers.from_name.value}`,
       from_name: data.answers.from_name.value,
       message: localStorage.getItem("parsedText"),
       to_email: data.answers.to_email.value,
@@ -72,7 +74,7 @@ const NewForm = () => {
          `}
       </style>
 
-      <div style={{ width: "100%", height: "70vh" }}>
+      <div style={{ width: "100%", height: "80vh" }}>
         <Form
           formId="1"
           formObj={{
@@ -91,7 +93,7 @@ const NewForm = () => {
                 attributes: {
                   required: true,
                   label:
-                    "Thanks {{field:from_name}}! who is this email for?",
+                    "Thanks {{field:from_name}}! Now enter the <b>RECIPIENT'S</b> email address:",
                 },
               },
               {
@@ -100,7 +102,7 @@ const NewForm = () => {
                 attributes: {
                   required: true,
                   label:
-                    "Finally, what is your email?",
+                    "Thanks {{field:from_name}}! Finally, please enter <b>YOUR</b> email address!",
                 },
               },
             ],
@@ -109,6 +111,9 @@ const NewForm = () => {
               disableWheelSwiping: false,
               disableNavigationArrows: false,
               disableProgressBar: true,
+            },
+            messages: {
+              "block.email.placeholder": "Type the email here",
             },
             theme: {
               font: "Lato",
