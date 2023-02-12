@@ -15,7 +15,7 @@ const Confirmation = () => {
       body: JSON.stringify(data),
     });
     const subjectLine = await generatedSubject.json();
-    localStorage.setItem("subjectLine", subjectLine.data);
+    // localStorage.setItem("subjectLine", subjectLine.data);
     setSubject(subjectLine);
   }
   const handleClick = ()=>{
