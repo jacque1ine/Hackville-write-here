@@ -1,7 +1,9 @@
+/**rThis Component is an old form for the form which is all on one page.
+ */
+
 import React, { useRef } from "react";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-// import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Alert, Badge } from "react-bootstrap";
