@@ -49,6 +49,7 @@
     transform: rotate(45deg);
     animation: icon-line-tip .9s;
 }
+
 .success-checkmark .check-icon .icon-line.line-long {
     top: 38px;
     right: 8px;
