@@ -1,13 +1,8 @@
-import ContactForm from "@/component/ContactForm";
+import NewForm from "@/component/NewForm";
 import React from "react";
 
-const Form = () => {
-  return (
-    <div className="container">
-      <h1>Form</h1>
-      <ContactForm></ContactForm>
-    </div>
-  );
+export const Form = () => {
+  return <NewForm></NewForm>;
 };
 
 export default Form;

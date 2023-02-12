@@ -1,10 +1,13 @@
 import React, { useRef } from "react";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Alert, Badge } from "react-bootstrap";
+import { Form } from "@quillforms/renderer-core";
+import "@quillforms/renderer-core/build-style/style.css";
+import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
 type FormValues = {
   from_name: string;
   message: string;
@@ -59,7 +62,6 @@ const ContactForm = () => {
         onSubmit={handleSubmit((data) => {
           sendEmail(data);
         })}
-        id="myForm"
       >
         <Form.Group className="mb-5">
           <Form.Label>What is your name?</Form.Label>
