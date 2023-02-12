@@ -36,7 +36,7 @@ const NewForm = () => {
     const contactParams: any = {
       subject: "This is the subject",
       from_name: data.answers.from_name.value,
-      message: "hello there",
+      message: localStorage.getItem("parsedText"),
       to_email: data.answers.to_email.value,
       reply_to: data.answers.reply_to.value,
     };

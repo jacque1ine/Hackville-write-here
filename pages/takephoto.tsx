@@ -18,7 +18,6 @@ export default function Home() {
     if (webcamRef && webcamRef.current) {
       const tempSrc = webcamRef.current.getScreenshot();
 
-
       setImgSrc(tempSrc);
       getParsedText(tempSrc);
     }
@@ -27,7 +26,7 @@ export default function Home() {
   async function getParsedText(file: any) {
     const index = file.indexOf(",") + 1;
     const imgData = file.substring(index);
-    //console.log(imgData);
+
     const response = await fetch("/api/vision", {
       method: "POST",
       body: JSON.stringify(imgData),
@@ -40,9 +39,9 @@ export default function Home() {
       method: "POST",
       body: JSON.stringify(data.detections[0].description),
     });
-    const editedData = await editedResponse.json();
-
-    setParsedText(editedData.data);
+    const subjectLine = await editedResponse.json();
+    localStorage.setItem("parsedText", data.detections[0].description);
+    setParsedText(data.detections[0].description);
   }
   const videoConstraints = {
     facingMode: { exact: "environment" },
@@ -59,14 +58,20 @@ export default function Home() {
       <main>
         <div className="container">
           <p>{parsedText}</p>
-          
-          <Webcam audio={false} screenshotFormat="image/jpeg" ref={webcamRef} mirrored = {false}/>
+
+          <Webcam
+            audio={false}
+            screenshotFormat="image/jpeg"
+            ref={webcamRef}
+            mirrored={false}
+          />
           <button className="btn btn-info" onClick={capture}>
             Take photo
           </button>
           {
-            //this code displays the img once taken, change as yall ui ppl see fit. 
-          imgSrc && <img src={imgSrc} />} 
+            //this code displays the img once taken, change as yall ui ppl see fit.
+            imgSrc && <img src={imgSrc} />
+          }
         </div>
       </main>
     </>
