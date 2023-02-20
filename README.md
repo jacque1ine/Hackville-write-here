@@ -2,6 +2,8 @@
 
 write:here scans an image file for handwritten text and parses it into digital text using AI-powered technology. It allows the user to send the text as an email through our platform by providing the recipient's email address as well as their own.
 
+🏆 Hackville 2023 Most Creative Use of Github Winner
+
 ## Features
 
 - Image capturing and uploading
