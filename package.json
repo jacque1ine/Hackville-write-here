@@ -11,7 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@google-cloud/vision": "^3.1.1",
-    "@next/font": "13.1.6",
+    "@next/font": "13.4.4",
     "@quillforms/react-renderer-utils": "^4.0.0",
     "@quillforms/renderer-core": "^4.0.0",
     "@types/node": "18.13.0",
